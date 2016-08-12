@@ -3,7 +3,7 @@
 网桥：隔离广播域，2层交换机。  
 
 compute、Neutron节点的网络架构图。  
-![netnode](/img/1node_net.jpg)  
+![](https://github.com/C2python/opentsack-conf/blob/master/openstack/img/1node_net.jpg)  
 
 Compute 节点上由Neutron-OVS-Agent负责：
 >
@@ -101,15 +101,15 @@ tun/tap驱动程序实现了虚拟网卡的功能，tun表示虚拟的是点对�
 
 ##TUN/TAP MACVLAN MACVTAP##
 TUN设备是一种虚拟网络设备，通过该此设备，程序可以方便的模拟网络行为。物理设备的工作模式如下：  
-![phy](/img/phy.png)  
+![](https://github.com/C2python/opentsack-conf/blob/master/openstack/img/phy.png)  
 所有物理网卡收到的包会交给内核的 Network Stack 处理，然后通过 Socket API 通知给用户程序。  
 TUN设备的工作模式如下：  
-![TUN](/img/tun.png)  
+![](https://github.com/C2python/opentsack-conf/blob/master/openstack/img/tun.png)  
 
 普通的网卡，通过网卡收发数据包，TUN设备通过文件收发数据包。所有对这个文件的写操作会通过 TUN 设备转换成一个数据包送给内核；当内核发送一个包给 TUN 设备时，通过读这个文件可以拿到包的内容。  
 
 利用TUN设备搭建UDP VPN，处理流程如下所示：  
-![udp_tun](/img/udp_tun.png)  
+![](https://github.com/C2python/opentsack-conf/blob/master/openstack/img/udp_tun.png)  
 
 **TAP设备：**  
 TAP设备与TUN设备的工作方式相同，区别在于：  
@@ -118,15 +118,15 @@ TAP设备的/dev/tapX文件收发的是MAC层数据包，拥有MAC层功能，�
 
 **MACVLAN**  
 一个网卡绑定多个MAC地址，工作方式如下：  
-![MAC_VLAN](/img/macvlan.png)  
+![](https://github.com/C2python/opentsack-conf/blob/master/openstack/img/macvlan.png)  
 
 MACVLAN会根据收到包的目的MAC地址判断这个包需要交给哪个网卡，配合namespace使用，构建如下网络：  
-![nsmacvlan](/img/nsmacvlan.png)  
+![](https://github.com/C2python/opentsack-conf/blob/master/openstack/img/nsmacvlan.png)  
 
 由于 macvlan 与 eth0 处于不同的 namespace，拥有不同的 network stack，这样使用可以不需要建立 bridge 在 virtual namespace 里面使用网络。  
 
 **MACVTAP**  
 对MACVLAN的改进，综合MACVLAN与TAP设备，使用MACVLAN的方式收发数据包，收到的数据包交给/dev/tapX。工作方式如下：  
-![MACVTAP](macvtap.png)  
+![](https://github.com/C2python/opentsack-conf/blob/master/openstack/img/macvtap.png)  
 
 由于 MACVLAN 是工作在 MAC 层的，所以 MACVTAP 也只能工作在 MAC 层，不会有 MACVTUN 这样的设备
