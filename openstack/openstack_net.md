@@ -3,11 +3,8 @@
 网桥：隔离广播域，2层交换机。  
 
 compute、Neutron节点的网络架构图。  
-<<<<<<< HEAD
+
 ![](https://github.com/C2python/opentsack-conf/blob/master/openstack/img/1node_net.jpg)  
-=======
-![netnode](https://github.com/C2python/opentsack-conf/blob/master/openstack/img/1node_net.jpg)  
->>>>>>> bc4fd632cce2bbc2aa99e372609203f5b450ef5b
 
 Compute 节点上由Neutron-OVS-Agent负责：
 >
@@ -110,9 +107,6 @@ TUN设备是一种虚拟网络设备，通过该此设备，程序可以方便�
 TUN设备的工作模式如下：  
 <<<<<<< HEAD
 ![](https://github.com/C2python/opentsack-conf/blob/master/openstack/img/tun.png)  
-=======
-![TUN](https://github.com/C2python/opentsack-conf/blob/master/openstack/img/tun.png)  
->>>>>>> bc4fd632cce2bbc2aa99e372609203f5b450ef5b
 
 普通的网卡，通过网卡收发数据包，TUN设备通过文件收发数据包。所有对这个文件的写操作会通过 TUN 设备转换成一个数据包送给内核；当内核发送一个包给 TUN 设备时，通过读这个文件可以拿到包的内容。  
 
