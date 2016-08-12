@@ -3,7 +3,7 @@
 网桥：隔离广播域，2层交换机。  
 
 compute、Neutron节点的网络架构图。  
-![netnode](opentsack-conf/openstack/img/1node_net.jpg)  
+![netnode](https://github.com/C2python/opentsack-conf/blob/master/openstack/img/1node_net.jpg)  
 
 Compute 节点上由Neutron-OVS-Agent负责：
 >
