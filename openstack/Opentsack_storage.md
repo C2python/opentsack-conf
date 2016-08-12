@@ -29,7 +29,7 @@
 
 ###镜像存储-Glance
 提供虚拟机的发信啊、注册、取得服务。通过Glance，虚拟机镜像可以被存储到多种存储上，比如简单的文件存储和对象存储。
-![Glance](\img\\Glance.png "Glance 架构")
+![Glance](https://github.com/C2python/opentsack-conf/blob/master/openstack/img/1node_net.jpg/Glance.png "Glance 架构")
 
 Glance被设计为可以使用多种后端存储。前端通过API Server向多个Client提供服务。支持S3、Swift，简单的文件存储以及只读的HTTPS存储，也支持其他后端，如分布式存储系统（SheepDog和[**Ceph**](http:docs.ceph.org.cn)）。
 
